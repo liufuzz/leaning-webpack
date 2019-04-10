@@ -1,0 +1,24 @@
+{
+  "name": "leaning-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bundle": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liufuzz/leaning-webpack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liufuzz/leaning-webpack/issues"
+  },
+  "homepage": "https://github.com/liufuzz/leaning-webpack#readme",
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
