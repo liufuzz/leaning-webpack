@@ -1,11 +1,11 @@
-const a = 'aaa';
-const arr = [
-  new Promise(),
-  new Promise()
-]
+function getComponent() {
+  return import('lodash').then(({ default: _ }) => {
+    var element = document.createElement('div');
+    element.innerHTML = _.join(['liu', 'fu'], '-');
+    return element;
+  });
+}
 
-arr.map(item => {
-  item.then(res => {
-    console.log(res)
-  })
-})
+getComponent().then(element => {
+  document.body.appendChild(element);
+});

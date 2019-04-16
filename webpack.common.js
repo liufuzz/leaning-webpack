@@ -1,23 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
-  mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    open: true,
-    port: 8090
-    // hot: true,
-    // hotOnly: true,
-  },
   entry: {
     main: './src/index.js'
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
@@ -27,16 +17,6 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
-      // {
-      //   test: /\.(jpg|png|gif)$/,
-      //   use: {
-      //     loader: 'file-loader',
-      //     options: {
-      //       name: '[name]_[hash].[ext]',
-      //       outputPath: 'images/'
-      //     }
-      //   }
-      // },
       {
         test: /\.(jpg|png|gif)$/,
         use: {
@@ -70,6 +50,10 @@ module.exports = {
       template: './index.html'
     }),
     new CleanWebpackPlugin()
-    // new webpack.HotModuleReplacementPlugin()
-  ]
-};
+  ],
+  optimization: {
+    splitChunks: {  //代码分割
+      chunks: 'all'
+    }
+  }
+}
