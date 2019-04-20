@@ -53,7 +53,11 @@ module.exports = {
   ],
   optimization: {
     splitChunks: {  //代码分割
-      chunks: 'all'
+      chunks: 'all',
+      cacheGroups: {
+        vendors: false,
+        default: false
+      }
     }
   }
 }
